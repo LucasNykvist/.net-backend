@@ -9,6 +9,9 @@
   <ItemGroup>
     <Folder Include="Abstract\" />
     <Folder Include="Concrete\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Context\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
