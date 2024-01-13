@@ -1,3 +1,4 @@
+// Architecure
 N-TIER architecture -> Separated layers (projects in solution) responsible for specific concern
 
 ".net backend" -> presentation layer (http requests, responses, communication to client)
