@@ -1,0 +1,12 @@
+N-TIER architecture -> Separated layers (projects in solution) responsible for specific concern
+
+".net backend" -> presentation layer (http requests, responses, communication to client)
+
+"Models" -> Domain layer (Business objects, domain entities or models (represents real world objects the app is dealing with))
+
+"Repositories" -> Data access layer (Responsible for logic regarding data, communication with database etc)
+
+"Services" -> Business logic layer (contains business logic, coordinats between presentation layer and repository layer)
+
+This architecture helps to separate concerns, making the code easier to understand and maintain. 
+It also improves the modularity of the application, as each layer can be developed and tested independently of the others.
