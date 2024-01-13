@@ -2,7 +2,10 @@
 using Models;
 
 namespace Repositories;
-public class AppContext
+public class MyContext : DbContext
 {
+    public MyContext(DbContextOptions<MyContext> options) : base(options)
+    {
+    }
     public DbSet<Ticket> Tickets { get; set; }
 }

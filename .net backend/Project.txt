@@ -17,3 +17,9 @@ Presentation layer references Services and so on
 
 This architecture helps to separate concerns, making the code easier to understand and maintain. 
 It also improves the modularity of the application, as each layer can be developed and tested independently of the others.
+
+
+
+// Commands
+ADD_MIGRATION => dotnet ef migrations add migrationName --startup-project '../.net backend'
+UPDATE_DATABASE => dotnet ef database update --startup-project '../.net backend'
