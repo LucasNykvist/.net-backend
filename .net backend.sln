@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".net backend", ".net backen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{7320457B-543D-4A1F-833B-91CCB5AF75D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{12D71544-EDF6-40CF-9423-389A4586F493}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{7320457B-543D-4A1F-833B-91CCB5AF75D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7320457B-543D-4A1F-833B-91CCB5AF75D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7320457B-543D-4A1F-833B-91CCB5AF75D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D71544-EDF6-40CF-9423-389A4586F493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D71544-EDF6-40CF-9423-389A4586F493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D71544-EDF6-40CF-9423-389A4586F493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D71544-EDF6-40CF-9423-389A4586F493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
