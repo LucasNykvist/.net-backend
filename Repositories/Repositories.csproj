@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
     <Folder Include="Concrete\" />
     <Folder Include="Constants\" />
     <Folder Include="Context\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
