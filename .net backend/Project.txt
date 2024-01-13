@@ -9,5 +9,11 @@ N-TIER architecture -> Separated layers (projects in solution) responsible for s
 
 "Services" -> Business logic layer (contains business logic, coordinats between presentation layer and repository layer)
 
+^ ^ ^ 
+(Models, Repositories, Services) = Class libraries -> Not meant to be ran, only referenced and used by other projects.
+Example Repository and Services references Models
+Services References Repository
+Presentation layer references Services and so on
+
 This architecture helps to separate concerns, making the code easier to understand and maintain. 
 It also improves the modularity of the application, as each layer can be developed and tested independently of the others.
