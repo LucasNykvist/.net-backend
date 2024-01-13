@@ -1,4 +1,4 @@
-﻿namespace Models.DatabaseModels;
+﻿namespace Models;
 public class Ticket
 {
     public int Id { get; set; }

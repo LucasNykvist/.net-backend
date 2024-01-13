@@ -1,5 +1,7 @@
 ﻿namespace Repositories.Abstract;
-using Models.DatabaseModels;
+using Models;
+
+
 
 public interface ITicketRepository
 {
