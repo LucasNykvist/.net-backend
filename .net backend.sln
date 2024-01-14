@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{D27E6165-332A-4A8D-B3A9-6DA6F5639F17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{08E03E17-6D8F-4C25-ADB7-B3417EF64370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{D27E6165-332A-4A8D-B3A9-6DA6F5639F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D27E6165-332A-4A8D-B3A9-6DA6F5639F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D27E6165-332A-4A8D-B3A9-6DA6F5639F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E03E17-6D8F-4C25-ADB7-B3417EF64370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E03E17-6D8F-4C25-ADB7-B3417EF64370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E03E17-6D8F-4C25-ADB7-B3417EF64370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E03E17-6D8F-4C25-ADB7-B3417EF64370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
