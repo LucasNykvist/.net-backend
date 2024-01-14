@@ -8,7 +8,7 @@ namespace _net_backend;
 [Route("api/[controller]")]
 public class TicketController
 {
-    // Dependency Injection
+    // Dependency Injection - Constructor Injection (DI) - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0
     private readonly ITicketService _ticketService;
 
     public TicketController(ITicketService ticketService)
@@ -34,6 +34,12 @@ public class TicketController
     public async Task<IActionResult> GetTicketByTitle(string title)
     {
         Ticket ticket = await _ticketService.GetTicketByTitleAsync(title);
+        return new OkObjectResult(ticket);
+    }
+    
+    [HttpGet("id/{id}")]
+    public async Task<IActionResult> GetTicketById(int id){
+        Ticket ticket = await _ticketService.GetTicketByIdAsync(id);
         return new OkObjectResult(ticket);
     }
 

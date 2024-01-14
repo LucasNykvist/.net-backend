@@ -24,9 +24,22 @@ public class TicketRepository : ITicketRepository
         await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
     }
 
+    public async Task<Ticket> GetTicketByIdAsync(int id)
+    {
+        Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id);
+
+        if(ticket == null)
+        {
+            throw new Exception("Ticket not found");
+        } else
+        {
+            return ticket;
+        }
+    }
+
     public async Task<Ticket> GetTicketByTitleAsync(string title)
     {
-        var ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title);
+        Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title);
         
         if(ticket == null)
         {
