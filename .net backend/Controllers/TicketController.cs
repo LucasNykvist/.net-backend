@@ -3,6 +3,7 @@ using Models;
 using Services;
 namespace _net_backend;
 
+// URL -> http://localhost:5097/api/ticket
 [ApiController]
 [Route("api/[controller]")]
 public class TicketController
@@ -19,7 +20,13 @@ public class TicketController
     public async Task<IActionResult> CreateTicketAsync([FromBody] Ticket ticket)
     {
         var createdTicket = await _ticketService.CreateTicketAsync(ticket);
-        return new CreatedAtRouteResult("GetTicketById", new { id = createdTicket.Id }, createdTicket);
+        return new OkObjectResult(createdTicket);
+    }
+
+    [HttpGet]
+    public IActionResult GetTickets()
+    {
+        return new OkObjectResult("Hello!");
     }
 
 }
