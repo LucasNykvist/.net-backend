@@ -24,9 +24,10 @@ public class TicketController
     }
 
     [HttpGet]
-    public IActionResult GetTickets()
+    public async Task<IActionResult> GetTickets()
     {
-        return new OkObjectResult("Hello!");
+        var allTickets = await _ticketService.GetTicketsAsync();
+        return new OkObjectResult(allTickets);
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 using Repositories.Abstract;
 
 namespace Repositories.Concrete;
@@ -16,5 +17,10 @@ public class TicketRepository : ITicketRepository
         await _context.Tickets.AddAsync(ticket);
         await _context.SaveChangesAsync();
         return ticket;
+    }
+
+    public async Task<Ticket[]> GetTicketsAsync()
+    {
+        return await _context.Tickets.ToArrayAsync();
     }
 }

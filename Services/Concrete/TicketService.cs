@@ -15,4 +15,9 @@ public class TicketService : ITicketService
     {
         return _ticketRepository.CreateTicketAsync(ticket);
     }
+
+    public Task<Ticket[]> GetTicketsAsync()
+    {
+        return _ticketRepository.GetTicketsAsync();
+    }
 }
