@@ -15,4 +15,14 @@ public class TicketService : ITicketService
     {
         return _ticketRepository.CreateTicketAsync(ticket);
     }
+
+    public Task DeleteAllTicketsAsync()
+    {
+        return _ticketRepository.DeleteAllTicketsAsync();
+    }
+
+    public Task<Ticket[]> GetTicketsAsync()
+    {
+        return _ticketRepository.GetTicketsAsync();
+    }
 }

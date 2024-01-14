@@ -24,9 +24,17 @@ public class TicketController
     }
 
     [HttpGet]
-    public IActionResult GetTickets()
+    public async Task<IActionResult> GetTickets()
     {
-        return new OkObjectResult("Hello!");
+        var allTickets = await _ticketService.GetTicketsAsync();
+        return new OkObjectResult(allTickets);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAllTickets()
+    {
+        await _ticketService.DeleteAllTicketsAsync();
+        return new OkObjectResult("All tickets deleted");
     }
 
 }
