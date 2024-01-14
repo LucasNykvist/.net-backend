@@ -4,8 +4,17 @@ using Repositories.Abstract;
 namespace Repositories.Concrete;
 public class TicketRepository : ITicketRepository
 {
-    public Task<Ticket> CreateTicketAsync(Ticket ticket)
+    //Dependency Injection
+    private readonly MyContext _context;
+
+    public TicketRepository(MyContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task<Ticket> CreateTicketAsync(Ticket ticket)
+    {
+        await _context.Tickets.AddAsync(ticket);
+        await _context.SaveChangesAsync();
+        return ticket;
     }
 }
