@@ -7,6 +7,8 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 
+// Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MyContext>(options => options.UseMySql(configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 2, 0))));
@@ -21,7 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
+app.UseRouting();
+app.MapControllers();
 app.UseHttpsRedirection();
 app.Run();
 

@@ -22,4 +22,10 @@ public class TicketController
         return new CreatedAtRouteResult("GetTicketById", new { id = createdTicket.Id }, createdTicket);
     }
 
+    [HttpGet]
+    public IActionResult GetTickets()
+    {
+        return new OkObjectResult("Hello!");
+    }
+
 }
