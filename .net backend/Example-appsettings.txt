@@ -7,6 +7,6 @@
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "host=localhost port=5432 dbname=dotNet user=postgres password=password sslmode=prefer connect_timeout=10"
+    "DefaultConnection": "server=127.0.0.1;port=3306;database=dotNet;user=root;password=password;"
   }
 }
