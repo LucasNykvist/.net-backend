@@ -9,7 +9,7 @@ var configuration = new ConfigurationBuilder()
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<MyContext>(options => options.UseNpgsql("host=localhost; port=5432; dbname=postgres; user=postgres; password=MonaLisa200sx! sslmode=prefer; connect_timeout=10"));
+builder.Services.AddDbContext<MyContext>(options => options.UseMySql(configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 2, 0))));
 
 var app = builder.Build();
 
