@@ -19,6 +19,11 @@ public class TicketRepository : ITicketRepository
         return ticket;
     }
 
+    public async Task DeleteAllTicketsAsync()
+    {
+        await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
+    }
+
     public async Task<Ticket[]> GetTicketsAsync()
     {
         return await _context.Tickets.ToArrayAsync();

@@ -30,4 +30,11 @@ public class TicketController
         return new OkObjectResult(allTickets);
     }
 
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAllTickets()
+    {
+        await _ticketService.DeleteAllTicketsAsync();
+        return new OkObjectResult("All tickets deleted");
+    }
+
 }

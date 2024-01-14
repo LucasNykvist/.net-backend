@@ -6,4 +6,6 @@ public interface ITicketRepository
     Task<Ticket> CreateTicketAsync(Ticket ticket);
 
     Task<Ticket[]> GetTicketsAsync();
+
+    Task DeleteAllTicketsAsync();
 }
