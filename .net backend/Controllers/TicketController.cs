@@ -19,21 +19,21 @@ public class TicketController
     [HttpPost]
     public async Task<IActionResult> CreateTicketAsync([FromBody] Ticket ticket)
     {
-        var createdTicket = await _ticketService.CreateTicketAsync(ticket);
+        Ticket createdTicket = await _ticketService.CreateTicketAsync(ticket);
         return new OkObjectResult(createdTicket);
     }
 
     [HttpGet]
     public async Task<IActionResult> GetTickets()
     {
-        var allTickets = await _ticketService.GetTicketsAsync();
+        Ticket[] allTickets = await _ticketService.GetTicketsAsync();
         return new OkObjectResult(allTickets);
     }
 
     [HttpGet("{title}")]
     public async Task<IActionResult> GetTicketByTitle(string title)
     {
-        var ticket = await _ticketService.GetTicketByTitleAsync(title);
+        Ticket ticket = await _ticketService.GetTicketByTitleAsync(title);
         return new OkObjectResult(ticket);
     }
 
