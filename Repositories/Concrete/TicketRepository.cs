@@ -4,7 +4,7 @@ using Repositories.Abstract;
 namespace Repositories.Concrete;
 public class TicketRepository : ITicketRepository
 {
-    //Dependency Injection
+    // Dependency Injection
     private readonly MyContext _context;
 
     public TicketRepository(MyContext context)

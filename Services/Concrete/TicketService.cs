@@ -4,6 +4,7 @@ using Repositories.Abstract;
 namespace Services;
 public class TicketService : ITicketService
 {
+    // Dependency Injection
     private readonly ITicketRepository _ticketRepository;
 
     public TicketService(ITicketRepository ticketRepository)
