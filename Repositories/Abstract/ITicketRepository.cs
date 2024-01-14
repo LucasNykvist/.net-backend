@@ -9,5 +9,7 @@ public interface ITicketRepository
 
     Task<Ticket> GetTicketByTitleAsync(string title);
 
+    Task<Ticket> GetTicketByIdAsync(int id);
+
     Task DeleteAllTicketsAsync();
 }
