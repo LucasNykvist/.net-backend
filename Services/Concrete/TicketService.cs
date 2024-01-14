@@ -21,6 +21,11 @@ public class TicketService : ITicketService
         return _ticketRepository.DeleteAllTicketsAsync();
     }
 
+    public Task<Ticket> GetTicketByTitleAsync(string title)
+    {
+        return _ticketRepository.GetTicketByTitleAsync(title);
+    }
+
     public Task<Ticket[]> GetTicketsAsync()
     {
         return _ticketRepository.GetTicketsAsync();

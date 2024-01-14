@@ -30,6 +30,13 @@ public class TicketController
         return new OkObjectResult(allTickets);
     }
 
+    [HttpGet("{title}")]
+    public async Task<IActionResult> GetTicketByTitle(string title)
+    {
+        var ticket = await _ticketService.GetTicketByTitleAsync(title);
+        return new OkObjectResult(ticket);
+    }
+
     [HttpDelete]
     public async Task<IActionResult> DeleteAllTickets()
     {
