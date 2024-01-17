@@ -24,11 +24,10 @@ public class TicketRepository : ITicketRepository
         await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
     }
 
-    public async Task<Ticket> DeleteByIdAsync(int id)
+    public async Task DeleteByIdAsync(int id)
     {
         var foundTicket =  await GetTicketByIdAsync(id);
-        var deletedTicket = _context.Tickets.Remove(foundTicket);
-        return deletedTicket.Entity;
+        _context.Tickets.Remove(foundTicket);
     }
 
     public async Task<Ticket> GetTicketByIdAsync(int id)
