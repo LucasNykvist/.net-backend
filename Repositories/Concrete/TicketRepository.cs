@@ -24,6 +24,13 @@ public class TicketRepository : ITicketRepository
         await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
     }
 
+    public async Task<Ticket> DeleteByIdAsync(int id)
+    {
+        var foundTicket =  await GetTicketByIdAsync(id);
+        var deletedTicket = _context.Tickets.Remove(foundTicket);
+        return deletedTicket.Entity;
+    }
+
     public async Task<Ticket> GetTicketByIdAsync(int id)
     {
         Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id);

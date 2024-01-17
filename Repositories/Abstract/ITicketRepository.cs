@@ -11,5 +11,7 @@ public interface ITicketRepository
 
     Task<Ticket> GetTicketByIdAsync(int id);
 
+    Task<Ticket> DeleteByIdAsync(int id);
+
     Task DeleteAllTicketsAsync();
 }
