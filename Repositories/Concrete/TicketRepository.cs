@@ -71,7 +71,7 @@ public class TicketRepository : ITicketRepository
                 return ticket;
             }
         }
-        catch (Exception e)
+        catch (ArgumentException e)
         {
             throw new Exception(e.Message);
         }
