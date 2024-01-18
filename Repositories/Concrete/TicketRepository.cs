@@ -14,32 +14,66 @@ public class TicketRepository : ITicketRepository
     }
     public async Task<Ticket> CreateTicketAsync(Ticket ticket)
     {
-        await _context.Tickets.AddAsync(ticket);
-        await _context.SaveChangesAsync();
-        return ticket;
+        try
+        {
+            await _context.Tickets.AddAsync(ticket);
+            await _context.SaveChangesAsync();
+            return ticket;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+
     }
 
     public async Task DeleteAllTicketsAsync()
     {
-        await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
+        try
+        {
+            await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
+        }
+        catch (Exception e)
+        {
+            
+            throw new Exception(e.Message);
+        }
     }
 
     public async Task DeleteByIdAsync(int id)
     {
-        var foundTicket =  await GetTicketByIdAsync(id);
-        _context.Tickets.Remove(foundTicket);
+
+        try
+        {
+            var foundTicket =  await GetTicketByIdAsync(id);
+            _context.Tickets.Remove(foundTicket);
+        }
+        catch (Exception e)
+        {
+            
+            throw new Exception(e.Message);
+        }
+
+
     }
 
     public async Task<Ticket> GetTicketByIdAsync(int id)
     {
-        Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id);
+        try
+        {
+            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id);
 
-        if(ticket == null)
+            if(ticket == null)
+            {
+                throw new Exception("Ticket not found");
+            } else
+            {
+                return ticket;
+            }
+        }
+        catch (ArgumentException e)
         {
-            throw new Exception("Ticket not found");
-        } else
-        {
-            return ticket;
+            throw new Exception(e.Message);
         }
     }
 
