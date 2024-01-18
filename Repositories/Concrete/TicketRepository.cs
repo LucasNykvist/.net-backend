@@ -79,19 +79,34 @@ public class TicketRepository : ITicketRepository
 
     public async Task<Ticket> GetTicketByTitleAsync(string title)
     {
-        Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title);
-        
-        if(ticket == null)
+        try
         {
-            throw new Exception("Ticket not found");
-        } else
+            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title);
+            
+            if(ticket == null)
+            {
+                throw new Exception("Ticket not found");
+            } else
+            {
+                return ticket;
+            }
+        }
+        catch (ArgumentException e)
         {
-            return ticket;
+            
+            throw new Exception(e.Message);
         }
     }
-
     public async Task<Ticket[]> GetTicketsAsync()
     {
-        return await _context.Tickets.ToArrayAsync();
+        try
+        {
+            return await _context.Tickets.ToArrayAsync();
+        }
+        catch (ArgumentNullException e)
+        {
+            throw new Exception(e.Message, e.InnerException);
+        }
+        
     }
 }
