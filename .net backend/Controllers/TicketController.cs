@@ -31,7 +31,7 @@ public class TicketController
     }
 
     [HttpGet("{title}")]
-    public async Task<IActionResult> GetTicketByTitle([FromBody] string title)
+    public async Task<IActionResult> GetTicketByTitle(string title)
     {
         Ticket ticket = await _ticketService.GetTicketByTitleAsync(title);
         return new OkObjectResult(ticket);
