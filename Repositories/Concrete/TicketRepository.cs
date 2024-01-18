@@ -14,14 +14,30 @@ public class TicketRepository : ITicketRepository
     }
     public async Task<Ticket> CreateTicketAsync(Ticket ticket)
     {
-        await _context.Tickets.AddAsync(ticket);
-        await _context.SaveChangesAsync();
-        return ticket;
+        try
+        {
+            await _context.Tickets.AddAsync(ticket);
+            await _context.SaveChangesAsync();
+            return ticket;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+
     }
 
     public async Task DeleteAllTicketsAsync()
     {
-        await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
+        try
+        {
+            await _context.Database.ExecuteSqlRawAsync("DELETE FROM Tickets");
+        }
+        catch (Exception e)
+        {
+            
+            throw new Exception(e.Message);
+        }
     }
 
     public async Task DeleteByIdAsync(int id)
