@@ -5,11 +5,11 @@ public interface ITicketRepository
 {
     Task<Ticket> CreateTicketAsync(Ticket ticket);
 
-    Task<Ticket[]> GetTicketsAsync();
+    Task<Ticket[]> GetTicketsAsync(CancellationToken ct);
 
-    Task<Ticket> GetTicketByTitleAsync(string title);
+    Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct);
 
-    Task<Ticket> GetTicketByIdAsync(int id);
+    Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct);
 
     Task DeleteByIdAsync(int id);
 
