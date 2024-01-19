@@ -98,11 +98,11 @@ public class TicketRepository : ITicketRepository
             throw new Exception(e.Message);
         }
     }
-    public async Task<Ticket[]> GetTicketsAsync()
+    public async Task<Ticket[]> GetTicketsAsync(CancellationToken ct)
     {
         try
         {
-            return await _context.Tickets.ToArrayAsync();
+            return await _context.Tickets.ToArrayAsync(cancellationToken: ct);
         }
         catch (ArgumentNullException e)
         {
