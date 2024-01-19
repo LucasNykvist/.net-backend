@@ -42,10 +42,11 @@ public class TicketRepository : ITicketRepository
 
     public async Task DeleteByIdAsync(int id)
     {
+        var _cancellationToken = new CancellationToken();
 
         try
         {
-            var foundTicket =  await GetTicketByIdAsync(id);
+            var foundTicket =  await GetTicketByIdAsync(id, _cancellationToken);
             _context.Tickets.Remove(foundTicket);
         }
         catch (Exception e)
@@ -57,11 +58,11 @@ public class TicketRepository : ITicketRepository
 
     }
 
-    public async Task<Ticket> GetTicketByIdAsync(int id)
+    public async Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct)
     {
         try
         {
-            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id);
+            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id, ct);
 
             if(ticket == null)
             {
@@ -77,11 +78,11 @@ public class TicketRepository : ITicketRepository
         }
     }
 
-    public async Task<Ticket> GetTicketByTitleAsync(string title)
+    public async Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct)
     {
         try
         {
-            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title);
+            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title, ct);
             
             if(ticket == null)
             {
