@@ -21,18 +21,18 @@ public class TicketService : ITicketService
         return _ticketRepository.DeleteAllTicketsAsync();
     }
 
-    public Task<Ticket> GetTicketByIdAsync(int id)
+    public Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct)
     {
-        return _ticketRepository.GetTicketByIdAsync(id);
+        return _ticketRepository.GetTicketByIdAsync(id, ct);
     }
 
-    public Task<Ticket> GetTicketByTitleAsync(string title)
+    public Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct)
     {
-        return _ticketRepository.GetTicketByTitleAsync(title);
+        return _ticketRepository.GetTicketByTitleAsync(title, ct);
     }
 
-    public Task<Ticket[]> GetTicketsAsync()
+    public Task<Ticket[]> GetTicketsAsync(CancellationToken ct)
     {
-        return _ticketRepository.GetTicketsAsync();
+        return _ticketRepository.GetTicketsAsync(ct);
     }
 }
