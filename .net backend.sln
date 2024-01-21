@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enums", "Enums\Enums.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{8AFBBE62-5415-451C-A31B-C55BD78B5D27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestModels", "RequestModels\RequestModels.csproj", "{EA5F890B-AC6E-441D-8892-6996622908EB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,9 +54,5 @@ Global
 		{8AFBBE62-5415-451C-A31B-C55BD78B5D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFBBE62-5415-451C-A31B-C55BD78B5D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AFBBE62-5415-451C-A31B-C55BD78B5D27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA5F890B-AC6E-441D-8892-6996622908EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA5F890B-AC6E-441D-8892-6996622908EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA5F890B-AC6E-441D-8892-6996622908EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA5F890B-AC6E-441D-8892-6996622908EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
