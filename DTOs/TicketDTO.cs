@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace DTOs;
 
-namespace Models;
-public class Ticket
+// Data som ska visas i frontend
+public class TicketDTO
 {
-    [Key]
-    public int Id { get; set; }
     public int TicketNumber { get; set; }
     public string? Title { get; set; }
     public string? Description { get; set; }
@@ -15,5 +13,5 @@ public class Ticket
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
     public DateTime? ClosedAt { get; set; }
-}
 
+}
