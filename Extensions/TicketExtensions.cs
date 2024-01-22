@@ -33,4 +33,18 @@ public static class TicketExtensions
             Assignee = ticket.Assignee
         };
     }
+
+    public static Ticket Update(this CreateOrUpdateTicketDTO ticket)
+    {
+        return new Ticket
+        {
+            Title = ticket.Title,
+            Description = ticket.Description,
+            Status = Enum.Parse<TicketStatus>(ticket.Status),
+            Type = Enum.Parse<TicketType>(ticket.Type),
+            Priority = Enum.Parse<TicketPriority>(ticket.Priority),
+            Assignee = ticket.Assignee,
+            UpdatedAt = DateTime.UtcNow
+        };
+    }
 }
