@@ -24,26 +24,23 @@ public class TicketController
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetTickets()
+    public async Task<IActionResult> GetTickets(CancellationToken ct)
     {
-        var _cancellationToken = new CancellationToken();
-        Ticket[] allTickets = await _ticketService.GetTicketsAsync(_cancellationToken);
+        Ticket[] allTickets = await _ticketService.GetTicketsAsync(ct);
         return new OkObjectResult(allTickets);
     }
 
     [HttpGet("{title}")]
-    public async Task<IActionResult> GetTicketByTitle(string title)
+    public async Task<IActionResult> GetTicketByTitle(string title, CancellationToken ct)
     {
-        var _cancellationToken = new CancellationToken();
-        Ticket[] allTickets = await _ticketService.GetTicketsAsync(_cancellationToken);
-        Ticket ticket = await _ticketService.GetTicketByTitleAsync(title, _cancellationToken);
+        Ticket[] allTickets = await _ticketService.GetTicketsAsync(ct);
+        Ticket ticket = await _ticketService.GetTicketByTitleAsync(title, ct);
         return new OkObjectResult(ticket);
     }
     
     [HttpGet("id/{id}")]
-    public async Task<IActionResult> GetTicketById(int id){
-        var _cancellationToken = new CancellationToken();
-        Ticket ticket = await _ticketService.GetTicketByIdAsync(id, _cancellationToken);
+    public async Task<IActionResult> GetTicketById(int id, CancellationToken ct){
+        Ticket ticket = await _ticketService.GetTicketByIdAsync(id, ct);
         return new OkObjectResult(ticket);
     }
 
