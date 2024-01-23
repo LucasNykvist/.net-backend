@@ -13,8 +13,7 @@ public class TicketService : ITicketService
     }
     public Task<Ticket> CreateTicketAsync(Ticket ticket)
     {
-        var ticketRes = _ticketRepository.CreateTicketAsync(ticket) ?? throw new Exception("Ticket not created");
-        return ticketRes;
+        return _ticketRepository.CreateTicketAsync(ticket) ?? throw new Exception("Ticket not created");
     }
 
     public Task DeleteAllTicketsAsync()
@@ -24,7 +23,7 @@ public class TicketService : ITicketService
 
     public Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct)
     {
-        return _ticketRepository.GetTicketByIdAsync(id, ct);
+        return _ticketRepository.GetTicketByIdAsync(id, ct) ?? throw new Exception("Ticket not found");
     }
 
     public Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct)

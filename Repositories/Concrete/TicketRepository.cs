@@ -64,7 +64,7 @@ public class TicketRepository : ITicketRepository
         {
             Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id, ct);
 
-            if(ticket == null)
+            if(ticket is null)
             {
                 throw new Exception("Ticket not found");
             } else
@@ -84,7 +84,7 @@ public class TicketRepository : ITicketRepository
         {
             Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Title == title, ct);
             
-            if(ticket == null)
+            if(ticket is null)
             {
                 throw new Exception("Ticket not found");
             } else
