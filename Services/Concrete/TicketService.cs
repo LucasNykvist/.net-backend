@@ -13,7 +13,8 @@ public class TicketService : ITicketService
     }
     public Task<Ticket> CreateTicketAsync(Ticket ticket)
     {
-        return _ticketRepository.CreateTicketAsync(ticket);
+        var ticketRes = _ticketRepository.CreateTicketAsync(ticket) ?? throw new Exception("Ticket not created");
+        return ticketRes;
     }
 
     public Task DeleteAllTicketsAsync()
