@@ -54,27 +54,17 @@ public class TicketRepository : ITicketRepository
             
             throw new Exception(e.Message);
         }
-
-
     }
 
     public async Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct)
     {
         try
         {
-            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id, ct);
-
-            if(ticket is null)
-            {
-                throw new Exception("Ticket not found");
-            } else
-            {
-                return ticket;
-            }
+            return await _context.Tickets.FirstOrDefaultAsync(ticket => ticket.Id == id, ct) ?? throw new Exception("Ticket not found");
         }
-        catch (ArgumentException e)
+        catch (ArgumentException)
         {
-            throw new Exception(e.Message);
+            throw;
         }
     }
 
@@ -108,6 +98,5 @@ public class TicketRepository : ITicketRepository
         {
             throw new Exception(e.Message, e.InnerException);
         }
-        
     }
 }

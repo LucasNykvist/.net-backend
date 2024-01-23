@@ -37,13 +37,29 @@ public class TicketService : ITicketService
         }
     }
 
-    public Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct)
+    public async Task<Ticket> GetTicketByTitleAsync(string title, CancellationToken ct)
     {
-        return _ticketRepository.GetTicketByTitleAsync(title, ct) ?? throw new Exception("Ticket with that title not found");
+        try
+        {
+            return await _ticketRepository.GetTicketByTitleAsync(title, ct) ?? throw new Exception("Ticket with that title not found");
+        }
+        catch (Exception)
+        {
+            _logger.LogError("An error occurred when getting ticket by title");
+            throw;
+        }
     }
 
-    public Task<Ticket[]> GetTicketsAsync(CancellationToken ct)
+    public async Task<Ticket[]> GetTicketsAsync(CancellationToken ct)
     {
-        return _ticketRepository.GetTicketsAsync(ct) ?? throw new Exception("No tickets found");
+        try
+        {
+            return await _ticketRepository.GetTicketsAsync(ct) ?? throw new Exception("No tickets found");
+        }
+        catch (Exception)
+        {
+            _logger.LogError("An error occurred when getting tickets");
+            throw;
+        }
     }
 }
