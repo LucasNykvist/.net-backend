@@ -21,7 +21,15 @@ public class TicketService : ITicketService
 
     public Task DeleteAllTicketsAsync()
     {
-        return _ticketRepository.DeleteAllTicketsAsync();
+        try
+        {
+            return _ticketRepository.DeleteAllTicketsAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred when deleting all tickets");
+            throw;
+        }
     }
 
     public async Task<Ticket> GetTicketByIdAsync(int id, CancellationToken ct)

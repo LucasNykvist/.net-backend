@@ -43,7 +43,6 @@ public class TicketRepository : ITicketRepository
     public async Task DeleteByIdAsync(int id)
     {
         var _cancellationToken = new CancellationToken();
-
         try
         {
             var foundTicket =  await GetTicketByIdAsync(id, _cancellationToken);
