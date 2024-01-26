@@ -45,3 +45,5 @@ app.UseHttpsRedirection();
 // Run the app.
 app.Run();
 
+// Kommentar för commit lol
+
