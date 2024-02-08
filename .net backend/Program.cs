@@ -25,6 +25,8 @@ builder.Services.AddDbContext<MyContext>(options => options.UseMySql(configurati
 // Dependency Injection - Registering services with the DI container
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
+builder.Services.AddScoped<IBookGenreRepository, BookGenreRepository>();
+builder.Services.AddScoped<BookGenreService, BookGenreService>();
 
 // Build the app.
 var app = builder.Build();
