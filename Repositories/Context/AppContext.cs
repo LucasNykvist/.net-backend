@@ -8,4 +8,8 @@ public class MyContext : DbContext
     {
     }
     public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<Book> Books { get; set; }
+    public DbSet<BookAuthor> Authors { get; set; }
+    public DbSet<BookGenre> Genres { get; set; }
+    public DbSet<BookPublisher> Publishers { get; set; }
 }
